@@ -16,27 +16,60 @@
 <body>
 
     <div class="todo">
-        <div class="header">
-            <h1 class="header__heading">ToDo List</h1>
-            <input type="text" class="header__input" placeholder="Wpisz treść zadania...">
-            <button class="header__add-btn">Add</button>
+        <div class="todo__header">
+            <h1 class="todo__header-heading">ToDo List</h1>
+            <input type="text" class="todo__header-input" placeholder="Wpisz treść zadania...">
+            <button class="todo__header-add-btn">Add</button>
         </div>
 
-        <div class="todo-list">
-            <h3 class="todo-list__heading">Lista zadań:</h3>
-            <p class="todo-list__alert-info">Brak zadań na liście.</p>
+        <div class="todo__list">
+            <h3 class="todo__list-heading">Lista zadań:</h3>
+            <p class="todo__list-alert-info">Brak zadań na liście.</p>
 
-            <ul class="todo-list__tasks">
-                <li id="test">
+            <ul class="todo__list-task">
+
+                <li id="todo__list-task-test">
                     wypić kawę
-                    
+                    <div class="todo__list-task-test-tools">
+                        <button class="todo__list-task-test-tools--complete"><i class="fas fa-check"></i></button>
+                        <button class="todo__list-task-test-tools--edit">EDIT</button>
+                        <button class="todo__list-task-test-tools--delete"><i class="fas fa-times"></i></button>
+                    </div>
                 </li>
+                <li id="todo__list-task-test2">
+                    pouczyć się
+                    <div class="todo__list-task-test2-tools">
+                        <button class="todo__list-task-test2-tools--complete"><i class="fas fa-check"></i></button>
+                        <button class="todo__list-task-test2-tools--edit">EDIT</button>
+                        <button class="todo__list-task-test2-tools--delete"><i class="fas fa-times"></i></button>
+                    </div>
+                </li>
+                <li id="todo__list-task-test3">
+                    nakarmić kota
+                    <div class="todo__list-task-test3-tools">
+                        <button class=todo__list-task-test3-tools--complete"><i class="fas fa-check"></i></button>
+                        <button class="todo__list-task-test3-tools--edit">EDIT</button>
+                        <button class="todo__list-task-test3-tools--delete"><i class="fas fa-times"></i></button>
+                    </div>
+                </li>
+
             </ul>
 
 
         </div>
 
 
+    </div>
+
+    <div class="popup">
+        <h3 class="popup__heading">Edytuj zadanie:</h3>
+        <div class="popup__body">
+            <p class="popup__body-info"></p>
+            <input type="text" class="popup__body-input" placeholder="Wprowadź treść zadania...">
+            <button class="popup_body-btn popup_body-btn--accept">Zatwierdź</button>
+            <button class="popup_body-btn popup_body-btn--cancel">Anuluj</button>
+            
+        </div>
     </div>
 
     
