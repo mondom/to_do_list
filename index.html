@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pl">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>to_do_list</title>
-    
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-    
-        <link rel="stylesheet" href="./css/main.css">
-        <script src="https://kit.fontawesome.com/f234464579.js" crossorigin="anonymous"></script>
-    
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to_do_list</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://kit.fontawesome.com/f234464579.js" crossorigin="anonymous"></script>
+
+</head>
+
 <body>
 
     <div class="todo">
@@ -28,7 +30,7 @@
 
             <ul class="todo__list-task">
 
-                <li id="todo__list-task-test">
+                <li class="todo__list-task-test" id="test1">
                     wypić kawę
                     <div class="todo__list-task-test-tools">
                         <button class="todo__list-task-test-tools--complete"><i class="fas fa-check"></i></button>
@@ -36,29 +38,24 @@
                         <button class="todo__list-task-test-tools--delete"><i class="fas fa-times"></i></button>
                     </div>
                 </li>
-                <li id="todo__list-task-test2">
+                <li class="todo__list-task-test" id="test2">
                     pouczyć się
-                    <div class="todo__list-task-test2-tools">
-                        <button class="todo__list-task-test2-tools--complete"><i class="fas fa-check"></i></button>
-                        <button class="todo__list-task-test2-tools--edit">EDIT</button>
-                        <button class="todo__list-task-test2-tools--delete"><i class="fas fa-times"></i></button>
+                    <div class="todo__list-task-test-tools">
+                        <button class="todo__list-task-test-tools--complete"><i class="fas fa-check"></i></button>
+                        <button class="todo__list-task-test-tools--edit">EDIT</button>
+                        <button class="todo__list-task-test-tools--delete"><i class="fas fa-times"></i></button>
                     </div>
                 </li>
-                <li id="todo__list-task-test3">
+                <li class="todo__list-task-test" id="test3">
                     nakarmić kota
-                    <div class="todo__list-task-test3-tools">
-                        <button class=todo__list-task-test3-tools--complete"><i class="fas fa-check"></i></button>
-                        <button class="todo__list-task-test3-tools--edit">EDIT</button>
-                        <button class="todo__list-task-test3-tools--delete"><i class="fas fa-times"></i></button>
+                    <div class="todo__list-task-test-tools">
+                        <button class="todo__list-task-test-tools--complete"><i class="fas fa-check"></i></button>
+                        <button class="todo__list-task-test-tools--edit">EDIT</button>
+                        <button class="todo__list-task-test-tools--delete"><i class="fas fa-times"></i></button>
                     </div>
                 </li>
-
             </ul>
-
-
         </div>
-
-
     </div>
 
     <div class="popup">
@@ -66,13 +63,14 @@
         <div class="popup__body">
             <p class="popup__body-info"></p>
             <input type="text" class="popup__body-input" placeholder="Wprowadź treść zadania...">
-            <button class="popup_body-btn popup_body-btn--accept">Zatwierdź</button>
-            <button class="popup_body-btn popup_body-btn--cancel">Anuluj</button>
-            
+            <button class="popup__body-btn popup__body-btn--accept">Zatwierdź</button>
+            <button class="popup__body-btn popup__body-btn--cancel">Anuluj</button>
+
         </div>
     </div>
 
-    
+
     <script src="./js/script.js"></script>
 </body>
+
 </html>
