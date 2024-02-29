@@ -35,7 +35,24 @@ const prepareDOMEvents = () => {
 }
 
 const addNewTask = () => {
-	console.log('ok')
+	if (TO_DO_INPUT.value !== '') {
+		NEW_TASK = document.createElement('li')
+		NEW_TASK.classList.add('todo__list-task-test')
+		NEW_TASK.setAttribute('id', ID_NUMBER)
+		NEW_TASK.innerHTML = ` 
+        ${TO_DO_INPUT.value}
+        <div class="todo__list-task-test-tools">
+            <button class="todo__list-task-test-tools--complete"><i class="fas fa-check"></i></button>
+            <button class="todo__list-task-test-tools--edit">EDIT</button>
+            <button class="todo__list-task-test-tools--delete"><i class="fas fa-times"></i></button>
+        </div>
+   `
+		UL_LIST.appendChild(NEW_TASK)
+
+		ID_NUMBER++
+	} else {
+		ALERT_INFO.textContent = 'Dodaj treść zadania!'
+	}
 }
 
 document.addEventListener('DOMContentLoaded', main)

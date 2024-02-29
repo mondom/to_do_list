@@ -85,6 +85,7 @@ body {
 }
 .todo__list-task-test-tools button {
   padding: 15px 10px;
+  margin: 0 5px 5px 0;
   border: none;
   background-color: transparent;
   cursor: pointer;
