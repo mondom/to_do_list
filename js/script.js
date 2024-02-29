@@ -32,6 +32,7 @@ const prepareDOMElements = () => {
 
 const prepareDOMEvents = () => {
 	ADD_BTN.addEventListener('click', addNewTask)
+	TO_DO_INPUT.addEventListener('keyup', enterKeyCheck)
 }
 
 const addNewTask = () => {
@@ -48,10 +49,16 @@ const addNewTask = () => {
         </div>
    `
 		UL_LIST.appendChild(NEW_TASK)
-
 		ID_NUMBER++
+		TO_DO_INPUT.value = ''
 	} else {
 		ALERT_INFO.textContent = 'Dodaj treść zadania!'
+	}
+}
+
+const enterKeyCheck = e => {
+	if (e.key === 'Enter') {
+		addNewTask()
 	}
 }
 
