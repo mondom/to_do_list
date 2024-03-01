@@ -33,6 +33,7 @@ const prepareDOMElements = () => {
 const prepareDOMEvents = () => {
 	ADD_BTN.addEventListener('click', addNewTask)
 	TO_DO_INPUT.addEventListener('keyup', enterKeyCheck)
+	UL_LIST.addEventListener('click', checkClick)
 }
 
 const addNewTask = () => {
@@ -49,8 +50,10 @@ const addNewTask = () => {
         </div>
    `
 		UL_LIST.appendChild(NEW_TASK)
+		
 		ID_NUMBER++
 		TO_DO_INPUT.value = ''
+		ALERT_INFO.textContent = ''
 	} else {
 		ALERT_INFO.textContent = 'Dodaj treść zadania!'
 	}
@@ -60,6 +63,21 @@ const enterKeyCheck = e => {
 	if (e.key === 'Enter') {
 		addNewTask()
 	}
+}
+
+const checkClick = e => {
+	if (e.target.matches('.todo__list-task-test-tools--delete') || e.target.matches('.fa-times')) {
+		deleteTask(e)
+	} else if (e.target.matches('.todo__list-task-test-tools--edit')) {
+		console.log('edit')
+	} else if (e.target.matches('.todo__list-task-test-tools--complete') || e.target.matches('.fa-check')) {
+		console.log('check')
+	}
+}
+
+const deleteTask = e => {
+	e.target.closest('li').remove()
+
 }
 
 document.addEventListener('DOMContentLoaded', main)

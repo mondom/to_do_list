@@ -89,10 +89,10 @@ body {
 						padding: 15px 10px;
 						margin: 0 5px 5px 0;
 						border: none;
-						background-color: transparent;
+						background-color: grey;
 						cursor: pointer;
 						transition: background-color 0.3s;
-					
+						
 					}
 					&--complete {
 						color: var(--light-blue);
