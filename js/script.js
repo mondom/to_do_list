@@ -34,6 +34,8 @@ const prepareDOMEvents = () => {
 	ADD_BTN.addEventListener('click', addNewTask)
 	TO_DO_INPUT.addEventListener('keyup', enterKeyCheck)
 	UL_LIST.addEventListener('click', checkClick)
+	ADD_POPUP_BTN.addEventListener('click', changeData)
+	CLOSE_TO_DO_BTN.addEventListener('click', closePopup)
 }
 
 const addNewTask = () => {
@@ -50,7 +52,7 @@ const addNewTask = () => {
         </div>
    `
 		UL_LIST.appendChild(NEW_TASK)
-		
+
 		ID_NUMBER++
 		TO_DO_INPUT.value = ''
 		ALERT_INFO.textContent = ''
@@ -69,15 +71,42 @@ const checkClick = e => {
 	if (e.target.matches('.todo__list-task-test-tools--delete') || e.target.matches('.fa-times')) {
 		deleteTask(e)
 	} else if (e.target.matches('.todo__list-task-test-tools--edit')) {
-		console.log('edit')
+		editTask(e)
 	} else if (e.target.matches('.todo__list-task-test-tools--complete') || e.target.matches('.fa-check')) {
-		console.log('check')
+		e.target.closest('li').classList.add('completed')
+	}
+}
+
+const editTask = e => {
+	EDITED_TO_DO = e.target.closest('li')
+	POPUP_INPUT.value = EDITED_TO_DO.firstChild.textContent
+	POPUP.style.display = 'flex'
+}
+
+const changeData = () => {
+	if (POPUP_INPUT.value !== '') {
+		EDITED_TO_DO.firstChild.textContent = POPUP_INPUT.value
+		POPUP.style.display = 'none'
+		POPUP_INFO.textContent = ''
+	} else {
+		POPUP_INFO.textContent = 'Musisz wprowadzić jakąś treść!'
 	}
 }
 
 const deleteTask = e => {
 	e.target.closest('li').remove()
 
+	ALL_TASKS = UL_LIST.querySelectorAll('li')
+
+	if (ALL_TASKS.length === 0) {
+		ALERT_INFO.textContent = 'Brak zadań na liście'
+	} else {
+		ALERT_INFO.textContent = ''
+	}
+}
+
+const closePopup = () => {
+	POPUP.style.display = 'none'
 }
 
 document.addEventListener('DOMContentLoaded', main)

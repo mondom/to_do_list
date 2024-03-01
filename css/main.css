@@ -85,9 +85,8 @@ body {
 }
 .todo__list-task-test-tools button {
   padding: 15px 10px;
-  margin: 0 5px 5px 0;
   border: none;
-  background-color: grey;
+  background: transparent;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -101,7 +100,7 @@ body {
 .todo__list-task-test-tools--delete {
   color: tomato;
 }
-.todo__list-task-test-tools:hover {
+.todo__list-task-test-tools button:hover {
   background-color: #ddd;
 }
 

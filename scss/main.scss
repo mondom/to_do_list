@@ -87,12 +87,10 @@ body {
 					display: inline-block;
 					button {
 						padding: 15px 10px;
-						margin: 0 5px 5px 0;
 						border: none;
-						background-color: grey;
+						background: transparent;
 						cursor: pointer;
 						transition: background-color 0.3s;
-						
 					}
 					&--complete {
 						color: var(--light-blue);
@@ -101,26 +99,25 @@ body {
 						font-weight: bold;
 						color: rgb(15, 179, 69);
 					}
-					&--delete{
+					&--delete {
 						color: tomato;
 					}
-				
-				}
-				&-tools:hover {
-					background-color: #ddd;
+					button:hover {
+						background-color: #ddd;
+					}
 				}
 			}
 		}
 	}
 }
-.completed{
+.completed {
 	font-size: 12px;
 	font-style: italic;
 	color: var(--light-dark);
 	text-decoration: line-through;
 }
 
-.popup{
+.popup {
 	display: none;
 	justify-content: center;
 	align-items: center;
@@ -133,20 +130,20 @@ body {
 	color: var(--light);
 	background-color: var(--light-dark);
 	border-radius: 5px;
-	&__heading{
+	&__heading {
 		padding: 20px;
 	}
-	&__body{
+	&__body {
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
 		width: 90%;
 		padding: 10px;
-		&-info{
+		&-info {
 			margin-bottom: 20px;
 			color: var(--light);
 		}
-		&-input{
+		&-input {
 			width: 100%;
 			padding: 10px 20px;
 			border: none;
@@ -154,7 +151,7 @@ body {
 			color: var(--light-dark);
 			background-color: var(--light);
 		}
-		&-btn{
+		&-btn {
 			display: inline-block;
 			width: 30%;
 			padding: 10px 22px;
@@ -165,7 +162,7 @@ body {
 			background-color: var(--light);
 			text-transform: uppercase;
 			cursor: pointer;
-			transition: background-color .3s, color .3s;
+			transition: background-color 0.3s, color 0.3s;
 		}
 		&-btn:hover {
 			color: #fff;
