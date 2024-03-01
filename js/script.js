@@ -32,81 +32,70 @@ const prepareDOMElements = () => {
 
 const prepareDOMEvents = () => {
 	ADD_BTN.addEventListener('click', addNewTask)
-	TO_DO_INPUT.addEventListener('keyup', enterKeyCheck)
+	TO_DO_INPUT.addEventListener('keyup', enterCheck)
 	UL_LIST.addEventListener('click', checkClick)
-	ADD_POPUP_BTN.addEventListener('click', changeData)
-	CLOSE_TO_DO_BTN.addEventListener('click', closePopup)
 }
 
 const addNewTask = () => {
 	if (TO_DO_INPUT.value !== '') {
-		NEW_TASK = document.createElement('li')
-		NEW_TASK.classList.add('todo__list-task-test')
-		NEW_TASK.setAttribute('id', ID_NUMBER)
-		NEW_TASK.innerHTML = ` 
-        ${TO_DO_INPUT.value}
-        <div class="todo__list-task-test-tools">
-            <button class="todo__list-task-test-tools--complete"><i class="fas fa-check"></i></button>
-            <button class="todo__list-task-test-tools--edit">EDIT</button>
-            <button class="todo__list-task-test-tools--delete"><i class="fas fa-times"></i></button>
-        </div>
-   `
-		UL_LIST.appendChild(NEW_TASK)
-
 		ID_NUMBER++
+		NEW_TASK = document.createElement('li')
+		NEW_TASK.setAttribute('id', `${ID_NUMBER}`)
+		NEW_TASK.classList.add('todo__list-task-test')
+		NEW_TASK.textContent = TO_DO_INPUT.value
+		UL_LIST.appendChild(NEW_TASK)
 		TO_DO_INPUT.value = ''
 		ALERT_INFO.textContent = ''
+		console.log(NEW_TASK)
+		createToolsArea()
+		console.log(UL_LIST);
 	} else {
-		ALERT_INFO.textContent = 'Dodaj treść zadania!'
+		ALERT_INFO.innerText = 'Wpisz treść zadania!'
 	}
 }
 
-const enterKeyCheck = e => {
+const enterCheck = e => {
 	if (e.key === 'Enter') {
 		addNewTask()
 	}
 }
 
+const createToolsArea = () => {
+	const toolsArea = document.createElement('div')
+	toolsArea.classList.add('todo__list-task-test-tools')
+
+	const completeBtn = document.createElement('button')
+	completeBtn.classList.add('todo__list-task-test-tools--complete')
+
+	const editBtn = document.createElement('button')
+	editBtn.classList.add('todo__list-task-test-tools--edit')
+
+	const deleteBtn = document.createElement('button')
+	deleteBtn.classList.add('todo__list-task-test-tools--delete')
+
+	completeBtn.innerHTML = `<i class="fas fa-check"></i>`
+	editBtn.textContent = `EDIT`
+	deleteBtn.innerHTML = `<i class="fas fa-times"></i>`
+
+	toolsArea.appendChild(completeBtn)
+	toolsArea.appendChild(editBtn)
+	toolsArea.appendChild(deleteBtn)
+
+	NEW_TASK.appendChild(toolsArea)
+
+	// <div class="todo__list-task-test-tools">
+	// 	<button class="todo__list-task-test-tools--complete"><i class="fas fa-check"></i></button>
+	// 	<button class="todo__list-task-test-tools--edit">EDIT</button>
+	// 	<button class="todo__list-task-test-tools--delete"><i class="fas fa-times"></i></button>
+	// </div>
+}
+
 const checkClick = e => {
-	if (e.target.matches('.todo__list-task-test-tools--delete') || e.target.matches('.fa-times')) {
-		deleteTask(e)
-	} else if (e.target.matches('.todo__list-task-test-tools--edit')) {
-		editTask(e)
-	} else if (e.target.matches('.todo__list-task-test-tools--complete') || e.target.matches('.fa-check')) {
-		e.target.closest('li').classList.add('completed')
+	if (e.target.closest('button').classList.contains('todo__list-task-test-tools--complete')) {
+		console.log('ok')
+	}else if(e.target.closest('button').classList.contains('todo__list-task-test-tools--edit')){
+		console.log('edit');
 	}
-}
-
-const editTask = e => {
-	EDITED_TO_DO = e.target.closest('li')
-	POPUP_INPUT.value = EDITED_TO_DO.firstChild.textContent
-	POPUP.style.display = 'flex'
-}
-
-const changeData = () => {
-	if (POPUP_INPUT.value !== '') {
-		EDITED_TO_DO.firstChild.textContent = POPUP_INPUT.value
-		POPUP.style.display = 'none'
-		POPUP_INFO.textContent = ''
-	} else {
-		POPUP_INFO.textContent = 'Musisz wprowadzić jakąś treść!'
-	}
-}
-
-const deleteTask = e => {
-	e.target.closest('li').remove()
-
-	ALL_TASKS = UL_LIST.querySelectorAll('li')
-
-	if (ALL_TASKS.length === 0) {
-		ALERT_INFO.textContent = 'Brak zadań na liście'
-	} else {
-		ALERT_INFO.textContent = ''
-	}
-}
-
-const closePopup = () => {
-	POPUP.style.display = 'none'
 }
 
 document.addEventListener('DOMContentLoaded', main)
