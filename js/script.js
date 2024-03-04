@@ -48,7 +48,7 @@ const addNewTask = () => {
 		ALERT_INFO.textContent = ''
 		console.log(NEW_TASK)
 		createToolsArea()
-		console.log(UL_LIST);
+		console.log(UL_LIST)
 	} else {
 		ALERT_INFO.innerText = 'Wpisz treść zadania!'
 	}
@@ -93,8 +93,10 @@ const createToolsArea = () => {
 const checkClick = e => {
 	if (e.target.closest('button').classList.contains('todo__list-task-test-tools--complete')) {
 		console.log('ok')
-	}else if(e.target.closest('button').classList.contains('todo__list-task-test-tools--edit')){
-		console.log('edit');
+	} else if (e.target.closest('button').classList.contains('todo__list-task-test-tools--edit')) {
+		console.log('edit')
+	} else if (e.target.closest('button').classList.contains('todo__list-task-test-tools--delete')) {
+		console.log('delete')
 	}
 }
 
