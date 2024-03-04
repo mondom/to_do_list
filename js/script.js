@@ -22,7 +22,7 @@ const prepareDOMElements = () => {
 	ALERT_INFO = document.querySelector('.todo__list-alert-info')
 	ADD_BTN = document.querySelector('.todo__header-add-btn')
 	UL_LIST = document.querySelector('.todo__list-task')
-	NEW_TASK = document.getElementsByTagName('li')
+	ALL_TASKS = document.getElementsByTagName('li')
 	POPUP = document.querySelector('.popup')
 	POPUP_INFO = document.querySelector('.popup__body-info')
 	POPUP_INPUT = document.querySelector('.popup__body-input')
@@ -92,11 +92,24 @@ const createToolsArea = () => {
 
 const checkClick = e => {
 	if (e.target.closest('button').classList.contains('todo__list-task-test-tools--complete')) {
-		console.log('ok')
+		e.target.closest('li').classList.toggle('completed')
+		e.target.closest('button').classList.toggle('completed')
 	} else if (e.target.closest('button').classList.contains('todo__list-task-test-tools--edit')) {
-		console.log('edit')
+		POPUP.style.display = 'flex'
+		EDITED_TO_DO = e.target.closest('li')
+		POPUP_INPUT.value = EDITED_TO_DO.firstChild.textContent
+		console.log(EDITED_TO_DO)
 	} else if (e.target.closest('button').classList.contains('todo__list-task-test-tools--delete')) {
-		console.log('delete')
+		deleteTask(e)
+	
+	}
+}
+
+const deleteTask = e => {
+	e.target.closest('li').remove()
+	if(ALL_TASKS.length === 0){
+		ALERT_INFO.textContent = 'Brak zadań na liście.'
+		
 	}
 }
 
