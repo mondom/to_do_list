@@ -35,6 +35,7 @@ const prepareDOMEvents = () => {
 	TO_DO_INPUT.addEventListener('keyup', enterCheck)
 	UL_LIST.addEventListener('click', checkClick)
 	ADD_POPUP_BTN.addEventListener('click', changeToDo)
+	CLOSE_TO_DO_BTN.addEventListener('click', closePopup)
 }
 
 const addNewTask = () => {
@@ -114,6 +115,7 @@ const changeToDo = () => {
 	if (POPUP_INPUT.value !== '') {
 		EDITED_TO_DO.firstChild.textContent = POPUP_INPUT.value
 		POPUP.style.display = 'none'
+		POPUP_INFO.textContent = ''
 	} else {
 		POPUP_INFO.textContent = 'Musisz podać jakąś treść!'
 	}
@@ -124,6 +126,11 @@ const deleteTask = e => {
 	if (ALL_TASKS.length === 0) {
 		ALERT_INFO.textContent = 'Brak zadań na liście.'
 	}
+}
+
+const closePopup = () => {
+	POPUP.style.display = 'none'
+	POPUP_INFO.textContent = ''
 }
 
 document.addEventListener('DOMContentLoaded', main)
